@@ -6,3 +6,4 @@ end
 
 
 test(5)
+test("asdf")
