@@ -1,17 +1,25 @@
-def max_profit(prices) 
-    [left, right, max] = [0, 1, 0];
 
-    while (right < prices.size) {
-        canSlide = prices[right] <= prices[left]
-        left = right if canSlide
+class StockPicker
 
-        window = prices[right] - prices[left]
+    def max_profit(prices)
+        left = 0
+        right = 1
+        max = 0
+        array_holder = []
 
-        max = [max, window].max
-        right += 1
-    }
+        while (right < prices.size) do
+            can_slide = prices[right] <= prices[left]
+            left = right if can_slide
 
-    max
+            window = prices[right] - prices[left]
+            
+            if [max, window].max > max
+                max = [max, window].max
+                array_holder = [left, right]
+            end
+            right += 1
+        end
+       array_holder
+    end
+
 end
-
-puts max_profit([7,1,5,3,6,4])

@@ -1,7 +1,6 @@
 
 require 'substrings'
 
-
 RSpec.describe Substring do 
     let(:substring_finder) { Substring.new }
     let(:entry_word) { "below" }
