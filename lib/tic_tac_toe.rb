@@ -21,13 +21,15 @@ class TicTacToe
     def play_game
         while @game_in_progress do 
             puts "PLAYER #{(player_one_moves + player_two_moves).length % 2 == 0 ? "ONE" : "TWO" }, PLEASE SELECT A MOVE."
+
             player_move = gets.chomp.to_i
-            puts player_move.class
+
             if valid_move?(player_move)
                 place_figure(player_move)
                 print_moves
             else
-                puts "MOVE MUST BE A NUMBER FROM 1-9. PLEASE TRY AGAIN."
+                puts "MOVE MUST BE A NUMBER FROM 1-9, AND CANNOT "
+                puts "ALREADY BE ON THE BOARD. PLEASE TRY AGAIN."
                 # retry - wrong syntax
             end
 
@@ -47,12 +49,14 @@ class TicTacToe
         else
             @player_two_moves.push(move)
         end
+        put_circle_or_ex_on_board(move)
     end
 
     def print_moves
         # take stock of each player's moves
+        # print to the board
         puts "HERE'S THE STATE OF THE BOARD: \n"
-        puts "#{ @player_one_moves[0] ? "X" : " " }|#{@player_one_moves[0] ? " " : "X" }|#{@player_one_moves[0] ? " " : "X" }\n"
+        puts "#{ @player_one_moves[0] ? " " : "X" }|#{@player_one_moves[0] ? " " : "X" }|#{@player_one_moves[0] ? " " : "X" }\n"
         puts "_+_+_"
         puts "#{@player_one_moves[0] ? " " : "X" }|#{@player_one_moves[0] ? " " : "X" }|#{@player_one_moves[0] ? " " : "X" }\n"
         puts "_+_+_"
@@ -60,16 +64,14 @@ class TicTacToe
     end
 
     def valid_move?(move)
-        # no character already in this place
-        # character is a number between 1-9
-        # require 'pry'; binding.pry
-        return move.between?(0, 8)
-        #     return true
-        # return false unless move.between?(0, 8)
+        return move.between?(0, 8) && !@player_one_moves.include?(move) && !@player_two_moves.include?(move)
     end
 
-    def circle_or_ex?
-        # check if relevant spot
+    def put_circle_or_ex_on_board(move)
+        move_to_place = nil
+        move_to_place = "X" if @player_one_moves.include?(move)
+        move_to_place = "O" if @player_two_moves.include?(move)
+        move_to_place
     end
 
 end
