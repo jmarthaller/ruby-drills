@@ -35,6 +35,7 @@ class TicTacToe
 
             # If player one moves or player two moves 
             # matches the VALID_WINNING_MOVES constant,
+            @game_in_progress = false
             # the game is over and announce the winner
         end
         puts "#{@player_one_moves} YOU HAVE WON!"
@@ -45,9 +46,9 @@ class TicTacToe
 
     def place_figure(move)
         if (player_one_moves + player_two_moves).length % 2 == 0
-            @player_one_moves.push(move)
+            @player_one_moves << move
         else
-            @player_two_moves.push(move)
+            @player_two_moves << move
         end
         put_circle_or_ex_on_board(move)
     end
