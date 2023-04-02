@@ -1,11 +1,16 @@
 class TicTacToe
     VALID_WINNING_MOVES = [
-        []
+        [0, 1, 2], 
+        [3, 4, 5], 
+        [6, 7, 8], 
+        [0, 3, 6], 
+        [1, 4, 7], 
+        [2, 5, 8], 
+        [0, 4, 8],
+        [2, 4, 6]  
     ]
 
-
-    attr_reader :player_one_moves, :player_two_moves, :game_in_progress
-    
+    attr_reader :player_one_moves, :player_two_moves, :game_in_progress    
     
     def initialize(player_one_moves, player_two_moves, game_in_progress)
         @player_one_moves = player_one_moves
@@ -23,13 +28,13 @@ class TicTacToe
                 print_moves
             else
                 puts "MOVE MUST BE A NUMBER FROM 1-9. PLEASE TRY AGAIN."
-                # retry
+                # retry - wrong syntax
             end
 
-
+            
         end
+        puts "#{@player_one_moves} YOU HAVE WON!"
     end
-
 
 
     private 
@@ -41,6 +46,12 @@ class TicTacToe
     end
 
     def valid_move?(move)
+        # no character already in this place
+        # character is a number between 1-9
+        return false unless move.to_i.between?(0, 8)
     end
 
 end
+
+new_game = TicTacToe.new([], [], true)
+new_game.play_game
