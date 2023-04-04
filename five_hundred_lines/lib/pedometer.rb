@@ -4,6 +4,7 @@ def test(x)
     puts "Hello world ##{num}"
 end
 
+
 class Filter
 
     COEFFICIENTS_LOW_0_HZ = {
