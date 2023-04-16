@@ -9,6 +9,11 @@ RSpec.describe TicTacToe do
         expect(new_game).to be_kind_of(TicTacToe)
     end
 
+    it 'initializes two sets of player moves with zero' do 
+        expect(new_game.player_one_moves.count).to be(0);
+        expect(new_game.player_two_moves.count).to be(0);
+    end
+
     # it "identifies the length of the returned hash" do
     #     expect(substring_finder.substrings(entry_word, dictionary).count).to be(2)
     # end

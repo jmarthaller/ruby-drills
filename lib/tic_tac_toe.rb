@@ -38,7 +38,6 @@ class TicTacToe
             @game_in_progress = false
             # the game is over and announce the winner
         end
-        puts "#{@player_one_moves} YOU HAVE WON!"
     end
 
 
