@@ -40,6 +40,21 @@ class TicTacToe
         end
     end
 
+    def validate_winner
+        # If player one moves or player two moves   
+        # matches the VALID_WINNING_MOVES constant,
+        # the game is over and announce the winner
+    end
+
+    def announce_winner
+        # If player one moves or player two moves
+
+        # matches the VALID_WINNING_MOVES constant,
+        # the game is over and announce the winner
+        validate_winner
+    end
+
+
     private 
 
     def place_figure(move)
