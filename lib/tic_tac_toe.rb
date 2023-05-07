@@ -40,7 +40,6 @@ class TicTacToe
         end
     end
 
-
     private 
 
     def place_figure(move)
