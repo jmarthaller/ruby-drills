@@ -14,6 +14,11 @@ RSpec.describe TicTacToe do
         expect(new_game.player_two_moves.count).to be(0);
     end
 
+    it 'initializes a game in progress' do
+        expect(new_game.game_in_progress).to be(true)
+    end
+
+
     # it "identifies the length of the returned hash" do
     #     expect(substring_finder.substrings(entry_word, dictionary).count).to be(2)
     # end
