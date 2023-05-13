@@ -51,12 +51,16 @@ class TicTacToe
 
         # matches the VALID_WINNING_MOVES constant,
         # the game is over and announce the winner
+
         validate_winner
+        "Player 1 wins!"
     end
 
+    
 
-    private 
 
+
+    
     def place_figure(move)
         if (player_one_moves + player_two_moves).length % 2 == 0
             @player_one_moves << move
@@ -65,6 +69,8 @@ class TicTacToe
         end
         put_circle_or_ex_on_board(move)
     end
+    
+    private 
 
     def print_moves
         # take stock of each player's moves

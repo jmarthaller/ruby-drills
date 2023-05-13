@@ -27,6 +27,18 @@ RSpec.describe TicTacToe do
     #     expect(substring_finder.substrings(entry_word, dictionary)["low"]).to eq(1)
     # end
 
+    # it "places a figure on the board" do
+    #     new_game.place_figure(0)
+    #     expect(new_game.player_one_moves.count).to be(1)
+    # end
+
+    it "announces the winner" do
+        new_game.place_figure(0)
+        new_game.place_figure(1)
+        new_game.place_figure(2)
+        expect(new_game.announce_winner).to eq("Player 1 wins!")
+    end
+
 
 
 end
