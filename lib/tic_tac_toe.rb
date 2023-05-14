@@ -33,10 +33,7 @@ class TicTacToe
                 # retry - wrong syntax
             end
 
-            # If player one moves or player two moves 
-            # matches the VALID_WINNING_MOVES constant,
-            @game_in_progress = false
-            # the game is over and announce the winner
+            validate_winner
         end
     end
 
@@ -44,23 +41,19 @@ class TicTacToe
         # If player one moves or player two moves   
         # matches the VALID_WINNING_MOVES constant,
         # the game is over and announce the winner
+        if player_one_moves.length >= 3 || player_two_moves.length >= 3
+            VALID_WINNING_MOVES.each do |winning_move|
+                if (winning_move - player_one_moves).empty?
+                    puts "PLAYER ONE WINS!"
+                    @game_in_progress = false
+                elsif (winning_move - player_two_moves).empty?
+                    puts "PLAYER TWO WINS!"
+                    @game_in_progress = false
+                end
+            end
+        end
     end
-
-    def announce_winner
-        # If player one moves or player two moves
-
-        # matches the VALID_WINNING_MOVES constant,
-        # the game is over and announce the winner
-
-        validate_winner
-        "Player 1 wins!"
-    end
-
-    
-
-
-
-    
+  
     def place_figure(move)
         if (player_one_moves + player_two_moves).length % 2 == 0
             @player_one_moves << move

@@ -32,6 +32,13 @@ RSpec.describe TicTacToe do
     #     expect(new_game.player_one_moves.count).to be(1)
     # end
 
+    it "validates a winner" do 
+        new_game.place_figure(0)
+        new_game.place_figure(1)
+        new_game.place_figure(2)
+        expect(new_game.validate_winner).to be(true)
+    end
+
     it "announces the winner" do
         new_game.place_figure(0)
         new_game.place_figure(1)
